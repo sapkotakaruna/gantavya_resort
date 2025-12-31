@@ -1,0 +1,75 @@
+:root {
+  /* Brand Colors */
+  --primary-color: #2563eb;
+  --secondary-color: #9333ea;
+  --accent-color: #22c55e;
+
+  /* UI Colors */
+  --background-color: #ffffff;
+  --surface-color: #111827;
+  --text-color: #000308;
+  --muted-text-color: #9ca3af;
+  --button-text-color: #e0e0e0;
+  --light-text-color: #ffffff;
+
+  /* Navigation & Footer Colors */
+  --navbar-bg: black;
+  --navbar-text: #ffffff;
+  --navbar-secondary-bg: #f3f4f6;
+  --navbar-secondary-text: #1e3a8a;
+  --navbar-link-hover: #1e40af;
+  --footer-bg: black;
+  --footer-text: #ffffff;
+
+  /* Button & CTA Colors */
+  --btn-primary-bg: #1e3a8a;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover: #1e40af;
+  --btn-secondary-bg: #2563eb;
+  --btn-secondary-hover: #1d4ed8;
+  --btn-outline-border: #ffffff;
+  --btn-book-bg: #ffffff;
+  --btn-book-text: #1e3a8a;
+  --btn-book-hover: #f3f4f6;
+
+  /* Card & Section Colors */
+  --card-bg: #ffffff;
+  --card-hover-shadow: rgba(0, 0, 0, 0.15);
+  --section-bg-light: #ffffff;
+  --section-bg-gray: #f3f4f6;
+  --section-bg-dark: #1e3a8a;
+
+  /* Icon & Badge Colors */
+  --icon-bg: #1e3a8a;
+  --icon-text: #ffffff;
+  --icon-bg-light: #ffffff;
+  --icon-text-dark: #1e3a8a;
+  --icon-hover-bg: #e5e7eb;
+
+  /* Input & Form Colors */
+  --input-bg: #f3f4f6;
+  --input-text: #374151;
+  --input-hover-bg: #e5e7eb;
+  --input-border: #d1d5db;
+
+  /* State Colors */
+  --success-color: #16a34a;
+  --warning-color: #f59e0b;
+  --error-color: #dc2626;
+
+  /* Border & Divider Colors */
+  --border-color: #e5e7eb;
+  --divider-color: #d1d5db;
+
+  /* Overlay & Shadow Colors */
+  --overlay-light: rgba(0, 0, 0, 0.3);
+  --overlay-medium: rgba(0, 0, 0, 0.6);
+  --overlay-dark: rgba(0, 0, 0, 0.7);
+  --shadow-sm: rgba(0, 0, 0, 0.1);
+  --shadow-md: rgba(0, 0, 0, 0.2);
+  --shadow-lg: rgba(0, 0, 0, 0.3);
+
+  /* Typography */
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Playfair Display", Georgia, serif;
+}

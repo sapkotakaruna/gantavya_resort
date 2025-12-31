@@ -1,0 +1,35 @@
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+#header {
+  background-color: var(--navbar-bg);
+  color: var(--navbar-text);
+}
+#footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+}
+
+button {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  letter-spacing: 0.5px;
+}
