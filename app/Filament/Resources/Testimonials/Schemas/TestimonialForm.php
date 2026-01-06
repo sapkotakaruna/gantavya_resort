@@ -24,7 +24,9 @@ class TestimonialForm
                     ->default(null)
                     ->columnSpanFull(),
                 FileUpload::make('image_path')
-                    ->image(),
+                    ->image()
+                    ->disk('public')
+                    ->directory('testimonials/images'),
                 Toggle::make('status')
                     ->required(),
                 TextInput::make('rank')

@@ -22,6 +22,16 @@ class Slider extends Model
         'rank' => 'integer',
     ];
 
+    protected $appends = ['image_path_url'];
+    public function getImagePathUrlAttribute(): ?string
+    {
+        if (!$this->image_path) {
+            return null;
+        }
+
+        // Generate full public URL manually
+        return Storage::url($this->image_path);
+    }
     /**
      * Boot method to handle model events
      */

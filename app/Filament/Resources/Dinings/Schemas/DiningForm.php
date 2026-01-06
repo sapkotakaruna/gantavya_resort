@@ -22,8 +22,11 @@ class DiningForm
                     ->options(['dining' => 'Dining', 'menu' => 'Menu'])
                     ->required(),
                 FileUpload::make('image')
-                    ->image(),
-
+                    ->image()
+                    ->disk('public')
+                    ->directory('dining/images')
+                    ->label('Dining Image')
+                    ->required(),
                 TextInput::make('price')
                     ->numeric()
                     ->prefix('Rs')

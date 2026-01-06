@@ -27,8 +27,10 @@ class SiteSettingForm
 
                     FileUpload::make('logo')
                         ->label('Logo')
+                        ->disk('public')
                         ->image()
                         ->directory('site/logo')
+                        ->visibility('public')
                         ->imagePreviewHeight('100'),
 
                     TextInput::make('location')

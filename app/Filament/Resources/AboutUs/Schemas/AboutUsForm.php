@@ -25,6 +25,10 @@ class AboutUsForm
                     ->default(null)
                     ->columnSpanFull(),
                 FileUpload::make('image_path')
+                    ->label('Image')
+                    ->disk('public')
+                    ->directory('aboutus/images')
+                    ->visibility('public')
                     ->image(),
                 Toggle::make('status')
                     ->required(),

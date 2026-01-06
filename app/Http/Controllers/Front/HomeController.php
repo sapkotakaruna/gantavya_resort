@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ContactForm\StoreContactFormValidation;
 use App\Models\AboutUs;
+use App\Models\Award;
 use App\Models\Blog;
+use App\Models\Booking;
 use App\Models\Career;
 use App\Models\ContactForm;
+use App\Models\Dining;
 use App\Models\Event;
 use App\Models\EventForm;
 use App\Models\FAQ;
@@ -15,6 +18,7 @@ use App\Models\File;
 use App\Models\Gallery;
 use App\Models\Member;
 use App\Models\MemberCategory;
+use App\Models\Message;
 use App\Models\Notice;
 use App\Models\Partner;
 use App\Models\Service;
@@ -29,12 +33,12 @@ use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
-
+use Livewire\WithFileUploads;
 
 
 class HomeController extends Controller
 {
-    // use FileUpload;
+    use WithFileUploads;
 
     public $file_name;
     protected $_site_profile;
@@ -47,12 +51,10 @@ class HomeController extends Controller
     //HOME page
     public function index()
     {
-        // $data = [];
+        $data = [];
 
-        // $data['_site_profile'] = $this->_site_profile;
-        // // if ($data['_site_profile']) {
-        // // $data['_site_profile']->increment('view_count');
-        // // }
+        $data['_site_profile'] = $this->_site_profile;
+
         // $data['_testimonial'] = Testimonial::select('*')
         //     ->testimonial()
         //     ->active()
@@ -76,15 +78,52 @@ class HomeController extends Controller
         // $data['service'] = Service::orderBy('rank', 'asc')->where('service_type', 'acedamic')->limit(6)->get();
         // $data['aboutfront'] = AboutUs::select('id', 'slug', 'title', 'excerpt')->where('isfront', 1)->active()->limit(1)->get();
         // $data['_blogs'] = Blog::latest()->whereIn('type', ['blog'])->latest()->active()->limit(3)->get();
-        // $data['_slider'] = Slider::select('title', 'photo', 'excerpt', 'caption_position', 'image_mode', 'url')->orderBy('rank')->active()->limit(5)->get();
-        // $data['_school_event'] = Blog::latest()->where('type', 'event')->latest()->active()->limit(6)->get();
-        // $data['_notice'] = Notice::select('title', 'start_date', 'end_date', 'photo', 'slug', 'excerpt')
-        //     ->active()
-        //     ->orderBy('created_at', 'desc')
-        //     ->whereIn('displaystat', [0, 2])
-        //     ->limit(6)
-        //     ->get();
-        $data = [];
+        $data['_slider'] = Slider::select(
+            'title',
+            'short_description',
+            'image_path',
+            'label',
+            'link'
+        )->where('status', true)->orderBy('rank')->limit(5)->get();
+        $data['homeabout'] = AboutUs::select('title', 'description', 'image_path')->where('status', true)->limit(1)->first();
+        $data['message'] = Message::select('name', 'post', 'image_path', 'description')
+            ->where('status', true)
+            ->orderBy('rank')
+            ->limit(1)
+            ->first();
+        $data['front_gallery'] = Gallery::with(['images' => function ($q) {
+            $q->limit(1);
+        }])
+            ->where('status', true)
+            ->orderBy('rank')
+            ->limit(6)
+            ->get();
+        $data['front_dining'] = Dining::select(
+            'title',
+            'type',
+            'image',
+            'description',
+            'price',
+            'time',
+            'dining_hours',
+        )
+            ->where('status', true)
+            ->where('type', 'dining')
+            ->orderBy('rank')
+            ->limit(1)
+            ->first();
+        $data['front_service'] = ServiceCategory::select('name', 'image_path', 'description')->where('status', true)->limit(4)->get();
+        $data['front_award'] = Award::select('title', 'image_path', 'description')->where('status', true)->orderBy('rank')->limit(6)->get();
+        $data['front_testimonial'] = Testimonial::select('name', 'post', 'image_path', 'description')
+            ->where('status', true)
+            ->orderBy('rank')
+            ->limit(10)
+            ->get();
+        $data['front_booking'] = Booking::select('name', 'email', 'phone', 'check_in', 'check_out', 'guests', 'rooms')
+            ->where('status', true)
+            ->orderBy('created_at', 'desc')
+            ->limit(5)
+            ->get();
         return view('frontend.home', compact('data'));
     }
 

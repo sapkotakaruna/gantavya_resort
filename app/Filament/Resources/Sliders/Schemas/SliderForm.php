@@ -20,7 +20,11 @@ class SliderForm
                     ->default(null)
                     ->columnSpanFull(),
                 FileUpload::make('image_path')
-                    ->image(),
+                    ->image()
+                    ->disk('public')
+                    // ->directory('sliders/images')
+                    ->visibility('public')
+                    ->required(),
                 TextInput::make('label')
                     ->default(null),
                 TextInput::make('link')
@@ -30,6 +34,7 @@ class SliderForm
                     ->numeric()
                     ->default(0),
                 Toggle::make('status')
+                    ->default(true)
                     ->required(),
             ]);
     }

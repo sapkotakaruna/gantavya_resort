@@ -22,7 +22,11 @@ class MessageForm
                     ->default(null)
                     ->columnSpanFull(),
                 FileUpload::make('image_path')
-                    ->image(),
+                    ->image()
+                    ->disk('public')
+                    ->directory('messages/images')
+                    ->visibility('public')
+                    ->required(),
                 Toggle::make('status')
                     ->required(),
                 TextInput::make('rank')

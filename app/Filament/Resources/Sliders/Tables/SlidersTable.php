@@ -19,7 +19,11 @@ class SlidersTable
             ->columns([
                 TextColumn::make('title')
                     ->searchable(),
-                ImageColumn::make('image_path'),
+                ImageColumn::make('image_path')
+                    ->disk('public')
+                    ->directory('sliders/images')
+                    ->visibility('public')
+                    ->rounded(),
                 TextColumn::make('label')
                     ->searchable(),
                 TextColumn::make('link')

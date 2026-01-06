@@ -17,7 +17,9 @@ class AwardForm
                 TextInput::make('title')
                     ->required(),
                 FileUpload::make('image_path')
-                    ->image(),
+                    ->image()
+                    ->disk('public')
+                    ->directory('awards/images'),
                 Textarea::make('description')
                     ->default(null)
                     ->columnSpanFull(),

@@ -17,7 +17,11 @@ class ServiceCategoryForm
                 TextInput::make('name')
                     ->required(),
                 FileUpload::make('image_path')
-                    ->image(),
+                    ->image()
+                    ->disk('public')
+                    ->directory('servicecategory/images')
+                    ->maxSize(2048)
+                    ->columnSpanFull(),
                 Textarea::make('description')
                     ->default(null)
                     ->columnSpanFull(),

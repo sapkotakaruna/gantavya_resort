@@ -22,6 +22,7 @@ class GalleryForm
 
                 FileUpload::make('main_image')
                     ->image()
+                    ->disk('public')
                     ->directory('gallery/main')
                     ->label('Main Image')
                     ->required(),
@@ -35,6 +36,7 @@ class GalleryForm
                     ->schema([
                         FileUpload::make('image')
                             ->image()
+                            ->disk('public')
                             ->directory('gallery/images')
                             ->required(),
                     ])

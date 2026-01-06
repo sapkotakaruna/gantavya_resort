@@ -31,9 +31,17 @@ class SiteSetting extends Model
         'footer_menu_4_link',
 
     ];
-    protected $casts = [
-        //
-    ];
+    protected $appends = ['logo_url'];
+    public function getLogoUrlAttribute(): ?string
+    {
+        if (!$this->logo) {
+            return null;
+        }
+
+        // Generate full public URL manually
+        return Storage::url($this->logo);
+    }
+
     protected static function booted(): void
     {
         static::deleting(function ($siteSetting) {

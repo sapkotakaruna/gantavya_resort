@@ -18,49 +18,49 @@ use App\Models\Testimonial;
 
 
 
-// \Illuminate\Support\Facades\View::composer(['*'], function ($site_data) {
-//     $site_profile = \App\Models\SiteSetting::first();
-//     $_about_us = AboutUs::select('title', 'rank', 'slug', 'excerpt')->orderBy('rank')->about()->active()->get();
-//     $_service_category = ServiceCategory::select('name', 'slug', 'rank', 'status')->active()->rank()->get();
-//     $_member_category = MemberCategory::whereNull('parent_id')->with('children')->active()->rank()->get();
-//     $_message = Testimonial::select('id', 'name', 'post', 'photo', 'type', 'excerpt', 'slug', 'rank')->message()->active()->rank()->get(2);
-//     $_event_form = \App\Models\Event::latest()->active()->limit(2)->get();
-//     $_about_us_footer = AboutUs::select('*')->orderBy('rank')->first();
-//     $_audio = File::where('file_type', 'audio')->first();
-//     $_aboutSlider = Slider::select('photo')->orderBy('rank')->active()->skip(1)->first() ?? null;
+\Illuminate\Support\Facades\View::composer(['*'], function ($site_data) {
+    $site_profile = \App\Models\SiteSetting::first();
+    //     $_about_us = AboutUs::select('title', 'rank', 'slug', 'excerpt')->orderBy('rank')->about()->active()->get();
+    //     $_service_category = ServiceCategory::select('name', 'slug', 'rank', 'status')->active()->rank()->get();
+    //     $_member_category = MemberCategory::whereNull('parent_id')->with('children')->active()->rank()->get();
+    //     $_message = Testimonial::select('id', 'name', 'post', 'photo', 'type', 'excerpt', 'slug', 'rank')->message()->active()->rank()->get(2);
+    //     $_event_form = \App\Models\Event::latest()->active()->limit(2)->get();
+    //     $_about_us_footer = AboutUs::select('*')->orderBy('rank')->first();
+    //     $_audio = File::where('file_type', 'audio')->first();
+    //     $_aboutSlider = Slider::select('photo')->orderBy('rank')->active()->skip(1)->first() ?? null;
 
-//     $_breaking = Notice::select('title', 'slug', 'excerpt', 'created_at')->whereIn('displaystat', [1, 2])->active()->limit(10)->get();
-//     $_partner = Partner::active()->rank()->get();
-//     $_isinfo = Member::select('name', 'post', 'photo', 'excerpt', 'phone', 'email', 'isinfo')
-//         ->active()
-//         ->where('isinfo', 1)
-//         ->limit(1)
-//         ->get();
+    //     $_breaking = Notice::select('title', 'slug', 'excerpt', 'created_at')->whereIn('displaystat', [1, 2])->active()->limit(10)->get();
+    //     $_partner = Partner::active()->rank()->get();
+    //     $_isinfo = Member::select('name', 'post', 'photo', 'excerpt', 'phone', 'email', 'isinfo')
+    //         ->active()
+    //         ->where('isinfo', 1)
+    //         ->limit(1)
+    //         ->get();
 
-//     $_blog = Blog::latest()->whereIn('type', ['blog'])->latest()->active()->limit(3)->get();
+    //     $_blog = Blog::latest()->whereIn('type', ['blog'])->latest()->active()->limit(3)->get();
 
-//     $opening_times =  Hour::pluck('excerpt')->all();
+    //     $opening_times =  Hour::pluck('excerpt')->all();
 
 
-//     $site_data->with([
-//         '_seo' => \App\Models\Seo::first(),
-//         '_site_profile' => $site_profile,
-//         '_message' => $_message,
-//         '_aboutSlider' => $_aboutSlider,
-//         '_member_category' => $_member_category,
+    $site_data->with([
+        // '_seo' => \App\Models\Seo::first(),
+        '_site_profile' => $site_profile,
+        //         '_message' => $_message,
+        //         '_aboutSlider' => $_aboutSlider,
+        //         '_member_category' => $_member_category,
 
-//         '_service_category' => $_service_category,
-//         '_about_us' => $_about_us,
-//         '_breaking' => $_breaking,
-//         '_partner' => $_partner,
-//         '_event_form' => $_event_form,
-//         '_about_us_footer' => $_about_us_footer,
-//         '_isinfo' => $_isinfo,
-//         '_audio' => $_audio,
-//         '_blog' => $_blog,
-//         'opening_times' => $opening_times
-//     ]);
-// });
+        //         '_service_category' => $_service_category,
+        //         '_about_us' => $_about_us,
+        //         '_breaking' => $_breaking,
+        //         '_partner' => $_partner,
+        //         '_event_form' => $_event_form,
+        //         '_about_us_footer' => $_about_us_footer,
+        //         '_isinfo' => $_isinfo,
+        //         '_audio' => $_audio,
+        //         '_blog' => $_blog,
+        //         'opening_times' => $opening_times
+    ]);
+});
 
 
 // Route::get('/',                     [HomeController::class, 'index'])->name('index');
